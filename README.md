@@ -1,6 +1,6 @@
-# Swedish E-commerce Inventory API
+# 🛍️ Swedish E-commerce Inventory API
 
-A FastAPI-based RESTful API for managing inventory for Swedish e-commerce brands with JWT authentication and role-based access control.
+A high-performance FastAPI backend for inventory management, designed specifically for Swedish e-commerce brands. Features JWT authentication, role-based access control, and seamless integration with AI services.
 
 ## 🚀 Features
 
