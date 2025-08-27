@@ -4,6 +4,7 @@ Generate initial fake data for Swedish e-commerce
 from sqlalchemy.orm import Session
 
 from . import models, crud
+from .auth_utils import get_password_hash
 
 def create_initial_data(db: Session):
     """
@@ -12,6 +13,35 @@ def create_initial_data(db: Session):
     # Check if data already exists
     if db.query(models.Product).count() > 0:
         return  # Data already exists
+    
+    # Create initial users
+    users_data = [
+        {
+            "email": "admin@company.se",
+            "hashed_password": get_password_hash("admin123"),
+            "role": models.UserRole.admin,
+            "is_active": True
+        },
+        {
+            "email": "manager@company.se", 
+            "hashed_password": get_password_hash("manager123"),
+            "role": models.UserRole.manager,
+            "is_active": True
+        },
+        {
+            "email": "viewer@company.se",
+            "hashed_password": get_password_hash("viewer123"),
+            "role": models.UserRole.viewer,
+            "is_active": True
+        }
+    ]
+    
+    # Create users
+    for user_data in users_data:
+        user = models.User(**user_data)
+        db.add(user)
+    
+    db.commit()
 
     # Create products (common Swedish e-commerce items)
     products_data = [

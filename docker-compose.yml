@@ -11,6 +11,7 @@ services:
       - DATABASE_URL=postgresql://postgres:postgres@db:5432/swedish_ecommerce
     depends_on:
       - db
+    restart: on-failure  # أضف هذا لإعادة التشغيل التلقائي عند الفشل
 
   db:
     image: postgres:13
@@ -21,7 +22,7 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
     ports:
-      - "5432:5432"
+      - "5433:5432"  # استخدم 5433 خارجياً و5432 داخلياً
 
 volumes:
   postgres_data:

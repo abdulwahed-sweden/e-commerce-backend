@@ -2,7 +2,9 @@
 Pydantic schemas for request/response validation
 """
 from typing import Optional
-from pydantic import BaseModel
+from datetime import datetime
+from pydantic import BaseModel, EmailStr
+from .models import UserRole
 
 # Product schemas
 class ProductBase(BaseModel):
@@ -58,3 +60,37 @@ class Inventory(InventoryBase):
 
     class Config:
         from_attributes = True
+
+# User schemas
+class UserBase(BaseModel):
+    email: EmailStr
+    role: UserRole = UserRole.viewer
+
+class UserCreate(UserBase):
+    password: str
+
+class UserLogin(BaseModel):
+    email: EmailStr
+    password: str
+
+class User(UserBase):
+    id: int
+    is_active: bool
+    created_at: datetime
+
+    class Config:
+        from_attributes = True
+
+# Token schemas
+class Token(BaseModel):
+    access_token: str
+    refresh_token: str
+    token_type: str = "bearer"
+
+class TokenData(BaseModel):
+    email: Optional[str] = None
+    user_id: Optional[int] = None
+    role: Optional[str] = None
+
+class RefreshTokenRequest(BaseModel):
+    refresh_token: str
