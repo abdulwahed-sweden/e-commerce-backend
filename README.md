@@ -94,13 +94,15 @@ A FastAPI-based RESTful API for managing inventory for Swedish e-commerce brands
 
 ### Default Test Users
 
-The system includes these default users:
+The system includes these default users with secure passwords:
 
 | Email | Password | Role | Access |
 |-------|----------|------|--------|
-| `admin@company.se` | `admin123` | Admin | Full system access |
-| `manager@company.se` | `manager123` | Manager | Read/Write operations |
-| `viewer@company.se` | `viewer123` | Viewer | Read-only access |
+| `admin@company.se` | `SecureAdmin123` | Admin | Full system access |
+| `manager@company.se` | `ManagerPass123` | Manager | Read/Write operations |
+| `viewer@company.se` | `ViewerAccess123` | Viewer | Read-only access |
+
+**Note**: All default passwords meet security requirements (8+ characters, uppercase, lowercase, and digit).
 
 ## 📁 Project Structure
 

@@ -14,23 +14,24 @@ def create_initial_data(db: Session):
     if db.query(models.Product).count() > 0:
         return  # Data already exists
     
-    # Create initial users
+    # Create initial users with secure passwords that meet validation requirements
+    # All passwords must have: 8+ chars, uppercase, lowercase, and digit
     users_data = [
         {
             "email": "admin@company.se",
-            "hashed_password": get_password_hash("admin123"),
+            "hashed_password": get_password_hash("SecureAdmin123"),
             "role": models.UserRole.admin,
             "is_active": True
         },
         {
             "email": "manager@company.se", 
-            "hashed_password": get_password_hash("manager123"),
+            "hashed_password": get_password_hash("ManagerPass123"),
             "role": models.UserRole.manager,
             "is_active": True
         },
         {
             "email": "viewer@company.se",
-            "hashed_password": get_password_hash("viewer123"),
+            "hashed_password": get_password_hash("ViewerAccess123"),
             "role": models.UserRole.viewer,
             "is_active": True
         }
