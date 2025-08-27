@@ -108,26 +108,27 @@ The system includes these default users with secure passwords:
 
 ```
 e-commerce-backend/
-├── app/
-├── .env.example
-├── .gitignore
-├── app
-│   ├── __init__.py
-│   ├── auth_routes.py
-│   ├── auth_utils.py
-│   ├── crud.py
-│   ├── database.py
-│   ├── dependencies.py
-│   ├── fake_data.py
-│   ├── main.py
-│   ├── models.py
-│   └── schemas.py
-├── docker-compose.yml
-├── Dockerfile
-├── LICENSE
-├── README.md
-├── requirements.txt
-└── STRUCTURE.txt
+
+├── .env.example                # Environment variables template for configuration
+├── .gitignore                  # Files and directories to ignore in Git
+├── app/                        # Main application package
+│   ├── __init__.py             # Package initialization file
+│   ├── auth_routes.py          # Authentication API endpoints (login, register, etc.)
+│   ├── auth_utils.py           # Authentication utilities (JWT, password hashing)
+│   ├── crud.py                 # Database CRUD operations (Create, Read, Update, Delete)
+│   ├── database.py             # Database configuration and session management
+│   ├── dependencies.py         # FastAPI dependencies (auth, database sessions)
+│   ├── fake_data.py            # Initial fake data generation for development
+│   ├── main.py                 # FastAPI application entry point and route definitions
+│   ├── models.py               # SQLAlchemy database models (tables structure)
+│   └── schemas.py              # Pydantic schemas (request/response validation)
+├── docker-compose.yml          # Docker compose for multi-container setup
+├── Dockerfile                  # Docker image configuration
+├── LICENSE                     # Project license file
+├── README.md                   # Project documentation and setup instructions
+├── requirements.txt            # Python dependencies list
+└── STRUCTURE.txt               # Project structure overview (this file)
+
 ```
 
 ## 🧪 Testing
