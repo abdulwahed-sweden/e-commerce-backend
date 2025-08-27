@@ -107,20 +107,27 @@ The system includes these default users with secure passwords:
 ## 📁 Project Structure
 
 ```
-swedish-ecommerce-api/
+e-commerce-backend/
 ├── app/
-│   ├── api/
-│   │   └── endpoints/          # API route handlers
-│   ├── core/                   # Core configuration
-│   ├── models/                 # SQLAlchemy models
-│   ├── schemas/                # Pydantic schemas
-│   ├── services/               # Business logic
-│   └── utils/                  # Utility functions
-├── tests/                      # Test suite
-├── migrations/                 # Database migrations
-├── docker-compose.yml          # Docker orchestration
-├── Dockerfile                  # Container configuration
-└── requirements.txt            # Python dependencies
+├── .env.example
+├── .gitignore
+├── app
+│   ├── __init__.py
+│   ├── auth_routes.py
+│   ├── auth_utils.py
+│   ├── crud.py
+│   ├── database.py
+│   ├── dependencies.py
+│   ├── fake_data.py
+│   ├── main.py
+│   ├── models.py
+│   └── schemas.py
+├── docker-compose.yml
+├── Dockerfile
+├── LICENSE
+├── README.md
+├── requirements.txt
+└── STRUCTURE.txt
 ```
 
 ## 🧪 Testing
